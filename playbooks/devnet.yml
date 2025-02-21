@@ -1,0 +1,19 @@
+-name: General Config
+
+  hosts: network_devices
+
+  tasks:
+
+    - name: Add Banner
+
+      ios_banner:
+      banner: login
+      text: |
+      This Banner was added using ansible
+      state: present
+
+    - name:  Add loopback
+
+      ios_interface:
+      name: Loopback10
+      state: present

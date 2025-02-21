@@ -1,0 +1,22 @@
+- name: General Config
+  hosts: network_devices
+  gather_facts: no
+  become: yes
+  become_method: enable
+  collections:
+    - arista.eos
+
+  tasks:
+   - name: Add Banner
+     eos_banner:
+      banner: login
+      text: |
+         This Banner was added using ansible
+      state: present
+
+   - name: Add loopback
+     eos_interfaces:
+       config:
+        - name: Loopback1
+          enabled: true
+       state: merged
