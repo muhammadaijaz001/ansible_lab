@@ -1,2 +1,10 @@
-192.168.123.1
-192.168.123.2
+[network_devices]
+switch01 ansible_host=192.168.123.1
+switch02 ansible_host=192.168.123.2
+
+[network_devices:vars]
+ansible_connection=network_cli
+ansible_network_os=arista.eos.eos
+ansible_connection=network_cli
+ansible_user=admin
+ansible_ssh_pass=admin
